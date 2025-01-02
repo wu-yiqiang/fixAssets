@@ -14,8 +14,6 @@ export default function User() {
 const styles = StyleSheet.create({
   User: {
     flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   title: {
     fontSize: 20,

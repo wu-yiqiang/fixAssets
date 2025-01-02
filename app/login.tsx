@@ -9,7 +9,6 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useTogglePasswordVisibility } from '@/hooks/toggle'
-
 import {login} from '@/api/user'
 export default function App() {
   const [account, onChangeAccount] = useState("");
