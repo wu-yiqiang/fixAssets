@@ -5,6 +5,7 @@ import TeacherHomeScreen from "@/screens/teacher/HomeScreen";
 import SearchStackScreen from "@/navigation/stacks/SearchStackScreen";
 import SettingStackScreen from "@/navigation/stacks/SettingStackScreen";
 import ChapterStackScreen from "@/navigation/stacks/ChapterStackScreen";
+import ModalOption from '@/navigation/options/ModalOption'
 import TabScreen from "@/navigation/TabScreen";
 
 const RootStack = createNativeStackNavigator();
@@ -14,20 +15,14 @@ const RootStackScreen = () => {
     <NavigationContainer>
       <RootStack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: false
         }}
       >
         <RootStack.Group>
           <RootStack.Screen name="Tab" component={TabScreen} />
           <RootStack.Screen name="SearchStack" component={SearchStackScreen} />
-          <RootStack.Screen
-            name="SettingStack"
-            component={SettingStackScreen}
-          />
-          <RootStack.Screen
-            name="ChapterStack"
-            component={ChapterStackScreen}
-          />
+          <RootStack.Screen name="SettingStack" component={SettingStackScreen} />
+          <RootStack.Screen name="ChapterStack" component={ChapterStackScreen} />
         </RootStack.Group>
 
         <RootStack.Group>
@@ -35,20 +30,21 @@ const RootStackScreen = () => {
             name="InformationStack"
             component={InformationStackScreen}
             options={{
-              presentation: "fullScreenModal",
+              presentation: 'fullScreenModal'
             }}
           />
           <RootStack.Screen
             name="Teacher"
             component={TeacherHomeScreen}
-            options={{
-              presentation: "modal",
-            }}
+            options={({ navigation }) => ({
+              ...ModalOption(navigation),
+              presentation: 'modal'
+            })}
           />
         </RootStack.Group>
       </RootStack.Navigator>
     </NavigationContainer>
-  );
+  )
 };
 
 export default RootStackScreen;

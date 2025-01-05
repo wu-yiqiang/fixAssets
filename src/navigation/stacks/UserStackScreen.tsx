@@ -8,18 +8,19 @@ const UserStackScreen = () => {
   return (
     <UserStack.Navigator
       screenOptions={({ route, navigation }) => ({
-        ...CardOption(route, navigation),
+        ...CardOption(route, navigation)
       })}
     >
       <UserStack.Screen
         name="Home"
         component={HomeScreen}
         options={({ navigation, route }) => ({
-          title: "我的",
+          ...HeaderButtonsOption(navigation),
+          title: '我的'
         })}
       />
     </UserStack.Navigator>
-  );
+  )
 };
 
 export default UserStackScreen;
